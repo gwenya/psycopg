@@ -71,7 +71,7 @@ def _resolve_hostnames(params: ConnDict) -> list[ConnDict]:
         resolving to more than one IP).
     """
     host = get_param(params, "host")
-    if not host or host.startswith("/") or host[1:2] == ":":
+    if not host or host.startswith("/") or host.startswith("@") or host[1:2] == ":":
         # Local path, or no host to resolve
         return [params]
 
